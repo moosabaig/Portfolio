@@ -64,6 +64,7 @@ export const Home = () => {
             href="https://github.com/moosabaig"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="GitHub"
             className="text-gray-500 hover:text-white transition-colors duration-200"
           >
             <FaGithub size={22} />
@@ -72,6 +73,7 @@ export const Home = () => {
             href="https://in.linkedin.com/in/moosa-baig"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="LinkedIn"
             className="text-gray-500 hover:text-blue-400 transition-colors duration-200"
           >
             <FaLinkedin size={22} />

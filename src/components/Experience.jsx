@@ -1,5 +1,3 @@
-import React from 'react';
-
 const experiences = [
   {
     role: 'Cybersecurity Analyst',
@@ -35,9 +33,9 @@ const Experience = () => {
         </div>
 
         <div className="space-y-6">
-          {experiences.map((exp, i) => (
+          {experiences.map((exp) => (
             <div
-              key={i}
+              key={exp.role}
               className="relative bg-[#0d0d0d] border border-white/5 rounded-2xl p-6 hover:border-blue-500/30 transition-colors duration-300"
             >
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-4">
@@ -51,8 +49,8 @@ const Experience = () => {
                 </span>
               </div>
               <ul className="space-y-2">
-                {exp.points.map((pt, j) => (
-                  <li key={j} className="flex items-start gap-2 text-gray-400 text-sm leading-relaxed">
+                {exp.points.map((pt) => (
+                  <li key={pt} className="flex items-start gap-2 text-gray-400 text-sm leading-relaxed">
                     <span className="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0 mt-1.5" />
                     {pt}
                   </li>

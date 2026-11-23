@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 const navLinks = [
@@ -17,6 +17,18 @@ const NavBar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // While the mobile menu is open: lock page scroll and close on Escape.
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e) => e.key === 'Escape' && setMenuOpen(false);
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [menuOpen]);
 
   return (
     <>
@@ -47,7 +59,7 @@ const NavBar = () => {
 
         {/* Desktop CTA */}
         <a
-          href="#Contact"
+          href="#contact"
           className="hidden md:block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg text-sm font-semibold transition-colors duration-200"
         >
           Contact
@@ -58,6 +70,7 @@ const NavBar = () => {
           onClick={() => setMenuOpen(!menuOpen)}
           className="md:hidden text-gray-300 hover:text-white transition-colors duration-200"
           aria-label="Toggle menu"
+          aria-expanded={menuOpen}
         >
           {menuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
         </button>
@@ -77,7 +90,7 @@ const NavBar = () => {
             </a>
           ))}
           <a
-            href="#Contact"
+            href="#contact"
             onClick={() => setMenuOpen(false)}
             className="mt-4 px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors duration-200"
           >

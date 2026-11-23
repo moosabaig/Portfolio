@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 const projects = [
@@ -46,9 +45,9 @@ const Projects = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {projects.map((project, i) => (
+          {projects.map((project) => (
             <div
-              key={i}
+              key={project.title}
               className="group bg-[#0d0d0d] border border-white/5 rounded-2xl p-6 hover:border-blue-500/40 transition-all duration-300 hover:shadow-xl hover:shadow-blue-900/20 flex flex-col"
             >
               <div className="flex items-start justify-between mb-3">
@@ -56,21 +55,23 @@ const Projects = () => {
                   {project.title}
                 </h3>
                 <div className="flex gap-3 ml-4 flex-shrink-0">
-                  {project.github && (
+                  {project.github && project.github !== '#' && (
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={`${project.title} source on GitHub`}
                       className="text-gray-500 hover:text-white transition-colors duration-200"
                     >
                       <FaGithub size={18} />
                     </a>
                   )}
-                  {project.live && (
+                  {project.live && project.live !== '#' && (
                     <a
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={`${project.title} live demo`}
                       className="text-gray-500 hover:text-blue-400 transition-colors duration-200"
                     >
                       <FaExternalLinkAlt size={16} />

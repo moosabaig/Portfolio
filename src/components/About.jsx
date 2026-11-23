@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaShieldAlt, FaCode, FaCloud } from 'react-icons/fa';
 
 const skills = [
@@ -49,13 +48,13 @@ const About = () => {
             </p>
             <div className="flex gap-4">
               <a
-                href="#Contact"
+                href="#contact"
                 className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition-colors duration-200"
               >
                 Contact Me
               </a>
               <a
-                href="/resume.pdf"
+                href={`${import.meta.env.BASE_URL}resume.pdf`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-6 py-2.5 border border-white/20 hover:border-white/50 rounded-lg font-semibold text-gray-300 hover:text-white transition-colors duration-200"
