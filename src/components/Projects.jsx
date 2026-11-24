@@ -2,6 +2,26 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 const projects = [
   {
+    title: 'Netra',
+    featured: true,
+    badge: 'Latest Project',
+    description:
+      'Local network scanner with a web UI for multi-threaded TCP port scanning and in-depth SSL/TLS assessment — protocols, cipher suites, certificates and known vulnerabilities — with CSV, JSON and PDF reporting.',
+    highlights: [
+      'Fast multi-threaded TCP connect scans across multiple hosts, with open ports streamed live',
+      'Three SSL/TLS engines: sslscan, testssl.sh (A–F grade) and a dependency-free Python scanner',
+      '20 vulnerability checks with CVEs: Heartbleed, ROBOT, POODLE, SWEET32, BEAST, DROWN, LOGJAM and more',
+      'Certificate, chain and hostname trust analysis plus HSTS and security-header checks',
+      'One-click SSL scan from any open port; clear diagnostics when a target is unreachable',
+      'Exports to CSV, JSON and PDF reports; also ships a CLI and a Tkinter desktop GUI',
+      'Secure by default: web server binds to 127.0.0.1 only',
+    ],
+    tags: ['Python', 'Port Scanning', 'SSL/TLS', 'testssl.sh', 'sslscan', 'PDF Reports'],
+    image: 'https://raw.githubusercontent.com/moosabaig/Netra/main/docs/screenshots/ssl-overview.png',
+    github: 'https://github.com/moosabaig/Netra',
+    live: null,
+  },
+  {
     title: 'SBOM Security Dashboard',
     featured: true,
     description:
@@ -88,9 +108,9 @@ const Projects = () => {
                 project.featured ? 'md:col-span-2' : ''
               }`}
             >
-              {project.featured && (
+              {project.badge && (
                 <span className="self-start mb-4 text-xs text-blue-400 font-semibold uppercase tracking-wider bg-blue-500/10 border border-blue-500/20 px-3 py-1 rounded-full">
-                  Latest Project
+                  {project.badge}
                 </span>
               )}
 
